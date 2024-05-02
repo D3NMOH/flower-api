@@ -75,6 +75,7 @@ export async function getFavorites(req, res) {
 export async function secureAddFavorite(req, res) {
   const userId = req.auth.claims.sub;
   const { productId } = req.body;
+  console.log(userId, productId);
   try {
     await _addFavorite({ userId, productId });
     return res.json({ msg: "ok" });
